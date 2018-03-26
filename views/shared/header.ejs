@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><%= title %></title>
+
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+
+<nav class="navbar navbar-light navbar-expand-lg bg-light justify-content-between">
+    <a class="navbar-brand" href="/">COMP2106 Car Tracker</a>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="/cars">Cars</a></li>
+        <li class="nav-item"><a class="nav-link" href="/makes">Manufacturers</a></li>
+    </ul>
+    <!-- ryan's solution-->
+    <ul class="navbar-nav">
+        <% if (user == undefined) { %>
+            <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+        <% }
+        else { %>
+            <li class="nav item nav-link"><%= user.username %></li>
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+        <% } %>
+    </ul>
+</nav>
+
+<main class="container-fluid" role="main">

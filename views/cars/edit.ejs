@@ -1,0 +1,25 @@
+<% include ../shared/header.ejs %>
+
+<h1>Car Details</h1>
+
+<form method="post">
+    <fieldset class="form-group">
+        <label class="control-label col-md-2" for="make">Make: *</label>
+        <input name="make" id="make" required value="<%= car.make %>" />
+    </fieldset>
+    <fieldset class="form-group">
+        <label class="control-label col-md-2" for="model">Model: *</label>
+        <input name="model" id="model" required value="<%= car.model %>" />
+    </fieldset>
+    <fieldset class="form-group">
+        <label class="control-label col-md-2" for="year">Year: *</label>
+        <input name="year" id="year" required type="number" min="1900" value="<%= car.year %>" />
+    </fieldset>
+    <fieldset class="form-group">
+        <label class="control-label col-md-2" for="colour">Colour:</label>
+        <input name="colour" id="colour" value="<%= car.colour %>" />
+    </fieldset>
+    <button class="offset-2 btn btn-primary">Save</button>
+</form>
+
+<% include ../shared/footer.ejs %>

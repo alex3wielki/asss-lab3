@@ -1,0 +1,32 @@
+<% include ../shared/header %>
+
+<h1>Car Inventory</h1>
+
+<% if (user) { %>
+    <a href="/cars/add">Add a New Car</a>
+<% } %>
+<table class="table table-striped table-hover">
+    <tr>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Year</th>
+        <% if (user) { %>
+            <th>Actions</th>
+        <% } %>
+    </tr>
+    <% for(let i = 0; i < cars.length; i++) { %>
+        <tr>
+            <td><%= cars[i].make %></td>
+            <td><%= cars[i].model %></td>
+            <td><%= cars[i].year %></td>
+            <% if (user) { %>
+                <td>
+                    <a class="btn btn-info" href="/cars/edit/<%= cars[i]._id %>">Edit</a>
+                    <a class="btn btn-danger" href="/cars/delete/<%= cars[i]._id %>" onclick="return confirm('Are you sure you want to delete this?');">Delete</a>
+                </td>
+            <% } %>
+        </tr>
+    <% } %>
+</table>
+
+<% include ../shared/footer %>
