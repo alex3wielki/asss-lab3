@@ -1,35 +1,35 @@
 <% include ../shared/header %>
 
   <h1>Manufacturers</h1>
+  <%if(user) { %>
+    <a href="/makes/add">Add a New Manufacturer</a>
+    <% } %>
+      <table class="table table-striped table-hover">
+        <tr>
+          <th>Name</th>
+          <th>Country</th>
+          <th>Year Founded</th>
+          <th>Actions</th>
+        </tr>
+        <% for(let i = 0; i < makes.length; i++) { %>
+          <tr>
+            <td>
+              <%= makes[i].name %>
+            </td>
+            <td>
+              <%= makes[i].country %>
+            </td>
+            <td>
+              <%= makes[i].yearFounded %>
+            </td>
+            <td>
+              <a class="btn btn-info" href="/makes/edit/<%= makes[i]._id %>">Edit</a>
+              <%if(user) { %>
+                <a class="btn btn-danger" href="/makes/delete/<%= makes[i]._id %>" onclick="return confirm('Are you sure you want to delete this?');">Delete</a>
+                <% } %>
+            </td>
+          </tr>
+          <% } %>
+      </table>
 
-  <a href="/makes/add">Add a New Manufacturer</a>
-
-  <table class="table table-striped table-hover">
-    <tr>
-      <th>Name</th>
-      <th>Country</th>
-      <th>Year Founded</th>
-      <th>Actions</th>
-    </tr>
-    <% for(let i = 0; i < makes.length; i++) { %>
-      <tr>
-        <td>
-          <%= makes[i].name %>
-        </td>
-        <td>
-          <%= makes[i].country %>
-        </td>
-        <td>
-          <%= makes[i].yearFounded %>
-        </td>
-        <td>
-          <a class="btn btn-info" href="/makes/edit/<%= makes[i]._id %>">Edit</a>
-          <%if(user) { %>
-            <a class="btn btn-danger" href="/makes/delete/<%= makes[i]._id %>" onclick="return confirm('Are you sure you want to delete this?');">Delete</a>
-            <% } %>
-        </td>
-      </tr>
-      <% } %>
-  </table>
-
-  <% include ../shared/footer %>
+      <% include ../shared/footer %>
