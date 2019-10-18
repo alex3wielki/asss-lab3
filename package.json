@@ -13,7 +13,7 @@
     "express": "~4.15.5",
     "express-session": "^1.15.6",
     "find-or-create": "^1.1.0",
-    "mongoose": "^5.0.7",
+    "mongoose": "^5.4.10",
     "mongoose-findorcreate": "^3.0.0",
     "morgan": "~1.9.0",
     "passport": "^0.4.0",
